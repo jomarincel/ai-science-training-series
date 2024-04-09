@@ -1,0 +1,121 @@
+learning_rate = 0.03	epochs = 10	batch_size = 8
+(poptorch33_env) (base) marincel@gc-poplar-03:~/graphcore/examples/tutorials/simple_applications/pytorch/mnist$ /opt/slurm/bin/srun --ipus=1 python mnist_poptorch.py
+srun: job 20426 queued and waiting for resources
+srun: job 20426 has been allocated resources
+Epochs:   0%|          | 0/10 [00:00<?,[15:10:32.187] [poptorch:cpp] [warning] [DISPATCHER] Type coerced from Long to Int for tensor id 10/150 [00:00<?, ?it/s]
+Graph compilation: 100%|██████████| 100/100 [00:21<00:00]
+Epochs: 100%|██████████| 10/10 [01:49<00:00, 10.94s/it]
+Graph compilation: 100%|██████████| 100/100 [00:14<00:00]
+ 95%|███████TrainingModelWithLoss(:00, 14.44it/s]<00:00]
+  (model): Network(
+    (layer1): Block(
+      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer2): Block(
+      (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer3): Linear(in_features=1600, out_features=128, bias=True)
+    (layer3_act): ReLU()
+    (layer3_dropout): Dropout(p=0.5, inplace=False)
+    (layer4): Linear(in_features=128, out_features=10, bias=True)
+    (softmax): Softmax(dim=1)
+  )
+  (loss): CrossEntropyLoss()
+)
+Accuracy on test set: 98.65%
+
+learning_rate = 0.12
+(poptorch33_env) (base) marincel@gc-poplar-03:~/graphcore/examples/tutorials/simple_applications/pytorch/mnist$ /opt/slurm/bin/srun --ipus=1 python mnist_12.py
+srun: job 20427 queued and waiting for resources
+srun: job 20427 has been allocated resources
+Epochs:   0%|          | 0/10 [00:00<?,[15:21:41.655] [poptorch:cpp] [warning] [DISPATCHER] Type coerced from Long to Int for tensor id 10/150 [00:00<?, ?it/s]
+Graph compilation: 100%|██████████| 100/100 [00:20<00:00]
+Epochs: 100%|██████████| 10/10 [01:49<00:00, 10.92s/it]
+Graph compilation: 100%|██████████| 100/100 [00:14<00:00]
+ 84%|████████▍ | 105/125 [00:1TrainingModelWithLoss(:00]
+  (model): Network(
+    (layer1): Block(
+      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer2): Block(
+      (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer3): Linear(in_features=1600, out_features=128, bias=True)
+    (layer3_act): ReLU()
+    (layer3_dropout): Dropout(p=0.5, inplace=False)
+    (layer4): Linear(in_features=128, out_features=10, bias=True)
+    (softmax): Softmax(dim=1)
+  )
+  (loss): CrossEntropyLoss()
+)
+Accuracy on test set: 97.78%
+
+epochs = 20
+(poptorch33_env) (base) marincel@gc-poplar-03:~/graphcore/examples/tutorials/simple_applications/pytorch/mnist$ /opt/slurm/bin/srun --ipus=1 python mnist_20.py
+srun: job 20428 queued and waiting for resources
+srun: job 20428 has been allocated resources
+Epochs:   0%|          | 0/10 [00:00<?,[15:34:32.596] [poptorch:cpp] [warning] [DISPATCHER] Type coerced from Long to Int for tensor id 10/150 [00:00<?, ?it/s]
+Graph compilation: 100%|██████████| 100/100 [00:20<00:00]
+Epochs: 100%|██████████| 10/10 [01:49<00:00, 10.93s/it]
+Graph compilation: 100%|██████████| 100/100 [00:14<00:00]
+ 94%|███████TrainingModelWithLoss(:00, 14.08it/s]<00:02]
+  (model): Network(
+    (layer1): Block(
+      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer2): Block(
+      (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer3): Linear(in_features=1600, out_features=128, bias=True)
+    (layer3_act): ReLU()
+    (layer3_dropout): Dropout(p=0.5, inplace=False)
+    (layer4): Linear(in_features=128, out_features=10, bias=True)
+    (softmax): Softmax(dim=1)
+  )
+  (loss): CrossEntropyLoss()
+)
+Accuracy on test set: 98.36%
+
+batch_size = 16
+(poptorch33_env) (base) marincel@gc-poplar-03:~/graphcore/examples/tutorials/simple_applications/pytorch/mnist$ /opt/slurm/bin/srun --ipus=1 python mnist_24.py
+srun: job 20430 queued and waiting for resources
+srun: job 20430 has been allocated resources
+Epochs:   0%|          | 0/10 [00:00<?,[15:38:32.551] [poptorch:cpp] [warning] [DISPATCHER] Type coerced from Long to Int for tensor id 10/150 [00:00<?, ?it/s]
+Graph compilation: 100%|██████████| 100/100 [00:22<00:00]
+Epochs: 100%|██████████| 10/10 [01:51<00:00, 11.16s/it]
+Graph compilation: 100%|██████████| 100/100 [00:14<00:00]
+ 85%|████████▍ | 106/125 [00:17<TrainingModelWithLoss(0]
+  (model): Network(
+    (layer1): Block(
+      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer2): Block(
+      (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer3): Linear(in_features=1600, out_features=128, bias=True)
+    (layer3_act): ReLU()
+    (layer3_dropout): Dropout(p=0.5, inplace=False)
+    (layer4): Linear(in_features=128, out_features=10, bias=True)
+    (softmax): Softmax(dim=1)
+  )
+  (loss): CrossEntropyLoss()
+)
+Accuracy on test set: 98.21%
+
+increasing the batch size or the number of epochs does not have a measurable effect on performance. changing the learning rate hurts performance. 

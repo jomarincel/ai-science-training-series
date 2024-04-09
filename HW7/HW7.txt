@@ -1,0 +1,8 @@
+sambanova: ntasks=8 and ntasks=16 performed the same number of iterations per second. ntasks=16 with 2 nodes performed fewer iterations per second. These results are counterintuitive. Both the runs with ntasks=16 resulted in a lower loss. 
+graphcore: increasing the batch size or the number of epochs does not have a measurable effect on performance. Increasing the learning rate hurts performance. 
+cerebras: A batch size of 512 took less time but resulted in a larger loss. A batch size of 2048 took less time and resulted in a larger loss. 
+groq: I had this working but rebuilding after an update resulted in conflicting versions of dependencies. I would like to change  
+"input_ids": torch.ones(batch_size, max_seq_length, dtype=torch.long)
+to 
+"input_ids": tokenizer.tokenize("This string could be anything. ")
+in bert_tiny.py. 
